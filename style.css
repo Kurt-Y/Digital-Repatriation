@@ -1,0 +1,156 @@
+/* 1. CORE LAYOUT & WHITE-SCREEN FIX */
+html, body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. CUSTOM CURSOR OVERRIDE */
+/* This rule forces the custom cursor globally, including over all Leaflet elements. */
+body,
+.leaflet-container,
+.leaflet-marker-icon,
+.leaflet-popup {
+    cursor: url('Dijital%20İade/imlec.png') 16 16, auto !important;
+}
+
+/* 3. UI CONTROLS (SEARCH & FILTER) */
+#controls-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    width: 35px; /* Collapsed state */
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    transition: width 0.3s ease-in-out;
+}
+
+#search-input:hover,
+#search-input:focus {
+    width: 250px; /* Expanded state */
+}
+
+#filter-icon {
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 4. FILTER MODAL */
+#filter-modal {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    z-index: 1001;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    width: 320px;
+}
+
+#filter-modal.hidden {
+    display: none;
+}
+
+#filter-modal h3 {
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: #333;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group > label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.checkbox-container {
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+}
+.checkbox-container div {
+    display: block;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.button-group button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+}
+
+#apply-filter-btn { background-color: #007bff; }
+#reset-filter-btn { background-color: #6c757d; }
+
+/* 5. POPUP STYLING */
+.leaflet-popup-content {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.popup-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+.leaflet-popup-content h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.leaflet-popup-content p {
+    margin: 4px 0;
+}
+.popup-description {
+    margin-top: 10px !important;
+    font-style: italic;
+    color: #555;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
+
+.iade-var { color: #28a745; font-weight: bold; }
+.iade-yok { color: #dc3545; font-weight: bold; }
